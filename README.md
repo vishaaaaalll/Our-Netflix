@@ -209,10 +209,12 @@ npm run preview
 
 ## 11. How to Deploy Using GitHub Pages
 
+This project includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that automatically builds and deploys the site to GitHub Pages whenever you push to the `main` branch.
+
 ### Step 1: Create a GitHub repository
 
 1. Go to [github.com](https://github.com) and create a new repository.
-2. Name it whatever you like (e.g. `our-netflix`).
+2. Name it exactly **`Our-Netflix`** (this must match the `base` path in `vite.config.ts`).
 
 ### Step 2: Upload the project
 
@@ -223,7 +225,7 @@ git init
 git add .
 git commit -m "OUR NETFLIX — our story"
 git branch -M main
-git remote add origin https://github.com/your-username/our-netflix.git
+git remote add origin https://github.com/vishaaaaalll/Our-Netflix.git
 git push -u origin main
 ```
 
@@ -232,34 +234,30 @@ git push -u origin main
 1. Go to your repository on GitHub.
 2. Click **Settings**.
 3. In the left sidebar, click **Pages**.
-4. Under **Source**, select **GitHub Actions** or **Deploy from a branch**.
-5. If using "Deploy from a branch":
-   - Branch: `main`
-   - Folder: `/ (root)`
-   - Click **Save**.
+4. Under **Build and deployment** → **Source**, select **GitHub Actions**.
+5. That's it — do not select "Deploy from a branch". The workflow file handles everything.
 
 ### Step 4: Wait for the build
 
-GitHub will build and publish your site. After a minute or two, your site will be live at:
+Push to `main` triggers the workflow. Go to the **Actions** tab to watch it build. After 1–2 minutes your site will be live at:
 
 ```
-https://your-username.github.io/our-netflix/
+https://vishaaaaalll.github.io/Our-Netflix/
 ```
 
-### Important note about the base path
+### Important: the base path
 
-The project is configured with `base: './'` in `vite.config.ts`, which means all asset paths are relative. This ensures the site works correctly whether it is hosted at the root of a domain or in a subdirectory like `username.github.io/repo-name/`.
-
-### The `.nojekyll` file
-
-A `.nojekyll` file is included in the `public/` folder. This tells GitHub Pages to serve the site as-is without processing it through Jekyll. This is important because Vite produces files with underscores in their names that Jekyll would otherwise ignore.
+The project is configured with `base: '/Our-Netflix/'` in `vite.config.ts`. This must match your repository name exactly. If you rename the repository, update this path to match.
 
 ---
 
 ## Project Structure
 
 ```
-our-netflix/
+Our-Netflix/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml       ← GitHub Actions deploy workflow
 ├── public/
 │   ├── .nojekyll          ← tells GitHub Pages not to use Jekyll
 │   └── images/            ← (optional) local images
@@ -270,7 +268,7 @@ our-netflix/
 │   ├── index.css          ← styling
 │   └── main.tsx           ← entry point
 ├── index.html
-├── vite.config.ts
+├── vite.config.ts         ← base path set to /Our-Netflix/
 ├── package.json
 └── README.md              ← this file
 ```

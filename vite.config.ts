@@ -3,10 +3,10 @@ import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'node:url';
 
 // https://vite.dev/config/
-// The base path is set to './' so the built site works correctly when
-// hosted in a GitHub Pages subdirectory (e.g. username.github.io/repo-name/).
+// The base path must match the GitHub Pages repository name.
+// The site is hosted at https://vishaaaaalll.github.io/Our-Netflix/
 export default defineConfig({
-  base: './',
+  base: '/Our-Netflix/',
   plugins: [react()],
   resolve: {
     alias: {
