@@ -6,7 +6,7 @@ import { fileURLToPath, URL } from 'node:url';
 // The base path must match the GitHub Pages repository name.
 // The site is hosted at https://vishaaaaalll.github.io/Our-Netflix/
 export default defineConfig({
-  base: '/Our-Netflix/',
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: {
