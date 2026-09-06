@@ -26,7 +26,7 @@ button:focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
 .menu-button { display: none !important; }
 .hero { min-height: 760px; height: min(91vh, 900px); position: relative; display: flex; align-items: flex-end; padding: 0 7% 11.5%; overflow: hidden; }
 .hero-image { position: absolute; inset: 0; background-size: cover; background-position: center 40%; background-repeat: no-repeat; transform: scale(1.02); animation: hero-zoom 14s ease-out both; }
-.hero-vignette { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,7,8,.93) 0%, rgba(10,7,8,.68) 35%, rgba(10,7,8,.12) 78%), linear-gradient(0deg, #0c0a0b 1%, transparent 37%, rgba(12,10,11,.25)); }
+.hero-vignette { position: absolute; inset: 0; opacity: .7; background: linear-gradient(90deg, rgba(10,7,8,.93) 0%, rgba(10,7,8,.68) 35%, rgba(10,7,8,.12) 78%), linear-gradient(0deg, #0c0a0b 1%, transparent 37%, rgba(12,10,11,.25)); }
 .hero-content { position: relative; max-width: 575px; animation: rise .85s ease-out both; }
 .eyebrow, .section-kicker { color: var(--pink); text-transform: uppercase; font-size: 10px; letter-spacing: .2em; font-weight: 600; }
 .eyebrow { display: flex; align-items: center; gap: 10px; color: #e8c2c8; margin-bottom: 25px; }
