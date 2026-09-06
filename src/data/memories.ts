@@ -75,7 +75,7 @@ export type Chapter = {
 // ---------------------------------------------------------------------
 
 export const heroConfig = {
-  heroImage: '/Our-Netflix/IMG_8643.jpg',
+  heroImage: '/IMG_8643.jpg',
   heroTitle: 'Anusha & Vishal',
   heroTitleAccent: 'Story',
   heroSubtitle: 'Because our story deserves its own streaming service.',
