@@ -427,8 +427,8 @@ function PhotoViewer({ memory, index, onClose, onChange }: {
           <small>{memory.date} · {index + 1} of {memory.media.length}</small>
         </div>
       </div>
-      {canPrev && <button className="viewer-arrow left" onClick={() => onChange(index - 1)}><ChevronLeft size={25} /></button>}
-      {canNext && <button className="viewer-arrow right" onClick={() => onChange(index + 1)}><ChevronRight size={25} /></button>}
+      {canPrev && <button className="viewer-arrow left" onClick={(e) => { e.stopPropagation(); onChange(index - 1); }}><ChevronLeft size={25} /></button>}
+      {canNext && <button className="viewer-arrow right" onClick={(e) => { e.stopPropagation(); onChange(index + 1); }}><ChevronRight size={25} /></button>}
     </div>
   );
 }
