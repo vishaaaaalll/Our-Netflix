@@ -8,6 +8,7 @@ import {
   type Memory, type Row,
   memories, rows, chapters, heroConfig, surpriseConfig
 } from '@/data/memories';
+import { ThemeToggle } from './ThemeToggle';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -94,8 +95,9 @@ function Navbar({ active, onNavigate, searchOpen, setSearchOpen, mobileMenu, set
         </nav>
         <div className="nav-actions">
           <button aria-label="Search" className={searchOpen ? 'action-active' : ''} onClick={() => setSearchOpen(true)}><Search size={19} /></button>
-          <button aria-label="Favourites" onClick={() => onNavigate('favourites')}><Heart size={19} /></button>
-          <button aria-label="Profile"><CircleUserRound size={20} /></button>
+          <button className="hide-mobile" aria-label="Favourites" onClick={() => onNavigate('favourites')}><Heart size={19} /></button>
+          <ThemeToggle />
+          <button className="hide-mobile" aria-label="Profile"><CircleUserRound size={20} /></button>
           <button className="menu-button" aria-label="Menu" onClick={() => setMobileMenu(!mobileMenu)}>{mobileMenu ? <X size={21} /> : <Menu size={21} />}</button>
         </div>
       </div>
