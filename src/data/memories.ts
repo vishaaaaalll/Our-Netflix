@@ -105,7 +105,7 @@ export const surpriseConfig = {
 // ---------------------------------------------------------------------
 
 const photos = {
-  hero: 'https://images.pexels.com/photos/1176581/pexels-photo-1176581.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  hero: 'https://res.cloudinary.com/uzxk6hk7/image/upload/f_auto,q_auto/cd2cde3caa126231b993291184a6a373',
   sunset: 'https://images.pexels.com/photos/1024963/pexels-photo-1024963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
   hands: 'https://images.pexels.com/photos/4529772/pexels-photo-4529772.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
   selfie: 'https://images.pexels.com/photos/27087259/pexels-photo-27087259.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -134,8 +134,8 @@ export const memories: Memory[] = [
     year: '2022',
     category: 'Our Story',
     type: 'photo',
-    thumbnail: '[https://res.cloudinary.com/uzxk6hk7/image/upload/f_auto,q_auto/cd2cde3caa126231b993291184a6a373](https://res.cloudinary.com/uzxk6hk7/image/upload/f_auto,q_auto/cd2cde3caa126231b993291184a6a373)',
-    media: ['[https://res.cloudinary.com/uzxk6hk7/image/upload/f_auto,q_auto/cd2cde3caa126231b993291184a6a373](https://res.cloudinary.com/uzxk6hk7/image/upload/f_auto,q_auto/cd2cde3caa126231b993291184a6a373)'],
+    thumbnail: photos.hero,
+    media: [photos.hero, photos.hands],
     description: 'Where everything started. Two people, one unexpected hello, and a story that keeps getting better.',
     tags: ['beginning', 'story', 'special'],
     episode: 'Chapter 1',
