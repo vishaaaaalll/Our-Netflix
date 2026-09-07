@@ -40,7 +40,7 @@ type FloatItem = {
   delay: number;
   rotation: number;
   opacity: number;
-  direction: 'up' | 'down' | 'left' | 'right' | 'drift';
+  pattern: 'bounce' | 'pulse' | 'sway' | 'rotate' | 'drift';
 };
 
 function seededRandom(seed: number): () => number {
@@ -56,19 +56,21 @@ function FloatingElements() {
     const rng = seededRandom(42);
     const all: FloatItem[] = [];
 
+    const patterns: FloatItem['pattern'][] = ['bounce', 'pulse', 'sway', 'rotate', 'drift'];
+
     // Floating emojis — 18 items
     for (let i = 0; i < 18; i++) {
       all.push({
         content: EMOJIS[Math.floor(rng() * EMOJIS.length)],
         isPhrase: false,
-        left: rng() * 100,
-        top: rng() * 100,
+        left: 5 + rng() * 90,
+        top: 5 + rng() * 90,
         size: 14 + rng() * 26,
-        duration: 12 + rng() * 18,
-        delay: rng() * 15,
-        rotation: (rng() - 0.5) * 40,
-        opacity: 0.25 + rng() * 0.35,
-        direction: ['up', 'down', 'left', 'right', 'drift'][Math.floor(rng() * 5)] as FloatItem['direction'],
+        duration: 4 + rng() * 3,
+        delay: rng() * 0.5,
+        rotation: (rng() - 0.5) * 30,
+        opacity: 0.3 + rng() * 0.35,
+        pattern: patterns[Math.floor(rng() * patterns.length)],
       });
     }
 
@@ -77,14 +79,14 @@ function FloatingElements() {
       all.push({
         content: PHRASES[Math.floor(rng() * PHRASES.length)],
         isPhrase: true,
-        left: rng() * 100,
-        top: rng() * 100,
+        left: 5 + rng() * 85,
+        top: 8 + rng() * 84,
         size: 11 + rng() * 14,
-        duration: 14 + rng() * 20,
-        delay: rng() * 18,
-        rotation: (rng() - 0.5) * 24,
-        opacity: 0.12 + rng() * 0.22,
-        direction: ['up', 'down', 'left', 'right', 'drift'][Math.floor(rng() * 5)] as FloatItem['direction'],
+        duration: 5 + rng() * 3,
+        delay: rng() * 0.5,
+        rotation: (rng() - 0.5) * 20,
+        opacity: 0.15 + rng() * 0.25,
+        pattern: patterns[Math.floor(rng() * patterns.length)],
       });
     }
 
@@ -93,14 +95,14 @@ function FloatingElements() {
       all.push({
         content: EMOJIS[Math.floor(rng() * 4)],
         isPhrase: false,
-        left: rng() * 100,
-        top: rng() * 100,
-        size: 50 + rng() * 40,
-        duration: 8 + rng() * 8,
-        delay: rng() * 10,
+        left: 10 + rng() * 80,
+        top: 10 + rng() * 80,
+        size: 50 + rng() * 35,
+        duration: 4 + rng() * 2,
+        delay: rng() * 0.5,
         rotation: 0,
-        opacity: 0.08 + rng() * 0.1,
-        direction: 'drift',
+        opacity: 0.1 + rng() * 0.12,
+        pattern: 'pulse',
       });
     }
 
@@ -112,7 +114,7 @@ function FloatingElements() {
       {items.map((item, i) => (
         <span
           key={i}
-          className={`login-float-item ${item.isPhrase ? 'login-float-phrase' : ''} ${item.size > 45 ? 'login-float-large' : ''} login-float-${item.direction}`}
+          className={`login-float-item ${item.isPhrase ? 'login-float-phrase' : ''} ${item.size > 45 ? 'login-float-large' : ''} login-float-${item.pattern}`}
           style={{
             left: `${item.left}%`,
             top: `${item.top}%`,
@@ -120,7 +122,7 @@ function FloatingElements() {
             animationDelay: `${item.delay}s`,
             animationDuration: `${item.duration}s`,
             '--float-rotation': `${item.rotation}deg`,
-            '--float-opacity': item.opacity,
+            '--float-opacity': String(item.opacity),
           } as React.CSSProperties}
         >
           {item.content}
