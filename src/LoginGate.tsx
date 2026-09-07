@@ -172,8 +172,8 @@ export function LoginGate({ onSuccess }: { onSuccess: () => void }) {
           <span className="login-brand-mark"><Film size={18} /></span>
           OUR<span>NETFLIX</span>
         </div>
-        <p className="login-eyebrow">Our Netflix</p>
-        <h1 className="login-title">Welcome to Our Story <span className="login-heart"><Heart size={36} fill="currentColor" /></span></h1>
+        <p className="login-eyebrow">Dear Baby</p>
+        <h1 className="login-title">Welcome to Our Story Anusha <span className="login-heart"><Heart size={36} fill="currentColor" /></span></h1>
         <p className="login-subtitle">A little universe that belongs to us.</p>
 
         <form onSubmit={handleSubmit} className="login-form">
