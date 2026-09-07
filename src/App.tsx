@@ -9,8 +9,10 @@ import {
   memories, rows, chapters, heroConfig, surpriseConfig
 } from '@/data/memories';
 import { ThemeToggle } from './ThemeToggle';
+import { LoginGate, LogoutButton, isAuthenticated, logout } from './LoginGate';
 
 function App() {
+  const [authed, setAuthed] = useState(isAuthenticated());
   const [activeSection, setActiveSection] = useState('home');
   const [selected, setSelected] = useState<Memory | null>(null);
   const [viewer, setViewer] = useState<{ memory: Memory; index: number } | null>(null);
@@ -44,6 +46,12 @@ function App() {
   const favouriteMemories = memories.filter((m) => favourites.includes(m.id));
   const featuredMemory = memories.find((m) => m.featured) ?? memories[0];
 
+  const handleLogout = () => { logout(); setAuthed(false); };
+
+  if (!authed) {
+    return <LoginGate onSuccess={() => setAuthed(true)} />;
+  }
+
   return (
     <div className="app-shell">
       <Navbar active={activeSection} onNavigate={goTo} searchOpen={searchOpen} setSearchOpen={setSearchOpen} mobileMenu={mobileMenu} setMobileMenu={setMobileMenu} onLogoClick={handleLogoClick} />
@@ -66,7 +74,7 @@ function App() {
           <button onClick={() => setSurprise(true)}>One more thing...</button>
           <button onClick={() => setGuideOpen(true)}>Customize</button>
         </div>
-        <div className="footer-note">Made with love<br /><span>© 2022 — Continuing</span></div>
+        <div className="footer-note">Made with love<br /><span>© 2022 — Continuing</span><LogoutButton onLogout={handleLogout} /></div>
       </footer>
       <MusicPlayer />
       <button className="secret-heart" aria-label="Open surprise" onClick={() => setSurprise(true)}><Heart size={17} fill="currentColor" /></button>
