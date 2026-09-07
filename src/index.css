@@ -348,6 +348,50 @@ button:focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
 .login-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 42%, transparent 0%, rgba(12,10,11,.55) 52%, rgba(12,10,11,.92) 100%), linear-gradient(0deg, #0c0a0b 2%, transparent 40%, rgba(12,10,11,.3) 100%); }
 .login-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .login-particle { position: absolute; bottom: -20px; width: 4px; height: 4px; border-radius: 50%; background: rgba(239,126,145,.55); box-shadow: 0 0 8px rgba(239,126,145,.4); animation: login-float linear infinite; opacity: 0; }
+
+/* Floating romantic elements */
+.login-float-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+.login-float-item { position: absolute; white-space: nowrap; opacity: 0; will-change: transform, opacity; filter: drop-shadow(0 0 6px rgba(239,126,145,.15)); }
+.login-float-phrase { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; letter-spacing: .03em; color: rgba(239,126,145,.7); text-shadow: 0 0 12px rgba(239,126,145,.2); }
+.login-float-large { filter: blur(.5px) drop-shadow(0 0 20px rgba(239,126,145,.2)); }
+
+.login-float-up { animation: float-up linear infinite; }
+.login-float-down { animation: float-down linear infinite; }
+.login-float-left { animation: float-left linear infinite; }
+.login-float-right { animation: float-right linear infinite; }
+.login-float-drift { animation: float-drift ease-in-out infinite; }
+
+@keyframes float-up {
+  0% { opacity: 0; transform: translateY(40px) rotate(var(--float-rotation)); }
+  15% { opacity: var(--float-opacity); }
+  85% { opacity: var(--float-opacity); }
+  100% { opacity: 0; transform: translateY(-100vh) rotate(var(--float-rotation)); }
+}
+@keyframes float-down {
+  0% { opacity: 0; transform: translateY(-40px) rotate(var(--float-rotation)); }
+  15% { opacity: var(--float-opacity); }
+  85% { opacity: var(--float-opacity); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(var(--float-rotation)); }
+}
+@keyframes float-left {
+  0% { opacity: 0; transform: translateX(40px) rotate(var(--float-rotation)); }
+  15% { opacity: var(--float-opacity); }
+  85% { opacity: var(--float-opacity); }
+  100% { opacity: 0; transform: translateX(-100vw) rotate(var(--float-rotation)); }
+}
+@keyframes float-right {
+  0% { opacity: 0; transform: translateX(-40px) rotate(var(--float-rotation)); }
+  15% { opacity: var(--float-opacity); }
+  85% { opacity: var(--float-opacity); }
+  100% { opacity: 0; transform: translateX(100vw) rotate(var(--float-rotation)); }
+}
+@keyframes float-drift {
+  0% { opacity: 0; transform: translate(0, 0) rotate(var(--float-rotation)) scale(.9); }
+  20% { opacity: var(--float-opacity); }
+  50% { transform: translate(30px, -25px) rotate(calc(var(--float-rotation) + 5deg)) scale(1); }
+  80% { opacity: var(--float-opacity); }
+  100% { opacity: 0; transform: translate(-20px, 20px) rotate(calc(var(--float-rotation) - 5deg)) scale(.95); }
+}
 .login-card { position: relative; z-index: 2; width: min(420px, 90vw); padding: 44px 38px 36px; display: flex; flex-direction: column; align-items: center; text-align: center; background: rgba(18,12,14,.55); backdrop-filter: blur(22px) saturate(1.2); border: 1px solid rgba(239,126,145,.18); border-radius: 14px; box-shadow: 0 20px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.06); animation: login-card-in .9s cubic-bezier(.22,1,.36,1) both; }
 .login-glow { position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 200px; height: 120px; border-radius: 50%; background: rgba(216,75,101,.2); filter: blur(60px); pointer-events: none; }
 .login-brand { display: flex; align-items: center; gap: 8px; font-size: 16px; letter-spacing: .12em; font-weight: 600; color: var(--text-bright); margin-bottom: 28px; }
