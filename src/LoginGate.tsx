@@ -22,12 +22,12 @@ export function logout(): void {
   }
 }
 
-const EMOJIS = ['❤️', '💕', '💗', '💖', '💘', '🥰', '😘', '🫶', '🌸', '✨', '💋', '🩷'];
+const EMOJIS = ['❤️', '💕', '💗', '💖', '💘', '🥰', '😘', '😇', '🌸', '✨', '💋', '😍'];
 const PHRASES = [
   'I LOVE YOU ❤️', 'I LOVE YOU BABY', 'CUTE ANUSHA 🥰', 'MY BEAUTIFUL BABY ❤️',
   'MOTA BUBA 😂❤️', 'PYAARA BABY 🥰', 'MY CUTIE 💕', 'MY BABY ❤️',
   'MERI JAAN ❤️', 'LOVE YOU SO MUCH 💖', 'ANUSHA ❤️', 'MY FAVOURITE PERSON 🫶',
-  'CUTIEEEE 😘', 'MY BEAUTIFUL GIRL ❤️', 'FOREVER US 💕', 'ONLY YOU ❤️', 'MY HOME 🥰',
+  'CUTIEEEE 😘', 'MY BEAUTIFUL GIRL ❤️', 'FOREVER US 💕', 'ONLY YOU ❤️', 'MY HOME 🥰','BABY 🥰',
 ];
 
 type FloatItem = {
